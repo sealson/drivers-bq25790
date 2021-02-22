@@ -1,0 +1,33 @@
+BasedOnStyle:   llvm 
+Language:       Cpp
+Standard:       Cpp11
+
+TabWidth:       4
+IndentWidth:    4
+UseTab:         Never
+
+ColumnLimit:    110
+
+BreakBeforeBraces: Linux 
+
+AlignConsecutiveAssignments:        true
+AlignConsecutiveDeclarations:       true
+AlignConsecutiveMacros:             true
+AlignTrailingComments:              true
+
+AllowShortBlocksOnASingleLine:      Empty 
+AllowShortFunctionsOnASingleLine:   Inline
+
+SpaceAfterCStyleCast:               true
+SpaceAfterLogicalNot:               false
+SpaceBeforeAssignmentOperators:     true
+SpacesBeforeTrailingComments:       1
+SpaceInEmptyParentheses:            false
+SpaceInEmptyBlock:                  true
+SpacesInAngles:                     false
+SpacesInContainerLiterals:          false
+SpacesInCStyleCastParentheses:      false
+SpacesInParentheses:                false
+SpacesInSquareBrackets:             false
+
+SortIncludes: true
