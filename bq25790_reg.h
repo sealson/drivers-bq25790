@@ -1,6 +1,7 @@
 #ifndef __BQ25790_REG_H
 #define __BQ25790_REG_H
 
+#include <bits/stdint-uintn.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,13 +38,13 @@ typedef union {
     } bit;
 } bq25790_ichg_reg;
 
-#define BQ25790_REG_VINDPM     0x05
+#define BQ25790_REG_VINDPM 0x05
 
 typedef union {
     uint16_t val;
 } bq25790_vindpm_reg;
 
-#define BQ25790_REG_IINDPM     0x06
+#define BQ25790_REG_IINDPM 0x06
 
 typedef union {
     uint16_t val;
@@ -228,37 +229,171 @@ typedef union {
 
 #define BQ25790_REG_CHG_STATUS3 0x1E
 
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t reserved : 1;
+        uint8_t prechg_tmr_stat : 1;
+        uint8_t trichg_tmr_stat : 1;
+        uint8_t chg_tmr_stat : 1;
+        uint8_t vsys_stat : 1;
+        uint8_t adc_done_stat : 1;
+        uint8_t acrb1_stat : 1;
+        uint8_t acrb2_stat : 1;
+    } bit;
+} bq25790_chgstat3_reg;
+
 #define BQ25790_REG_CHG_STATUS4 0x1F
+
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t ts_hot_stat : 1;
+        uint8_t ts_warm_stat : 1;
+        uint8_t ts_cool_stat : 1;
+        uint8_t ts_cold_stat : 1;
+        uint8_t vbat_otg_low_stat : 1;
+        uint8_t reserved : 3;
+    } bit;
+} bq25790_chgstat4_reg;
 
 #define BQ24790_REG_FLT_STATUS0 0x20
 
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t vac1_ovp_stat : 1;
+        uint8_t vac2_ovp_stat : 1;
+        uint8_t conv_ocp_stat : 1;
+        uint8_t ibat_ocp_stat : 1;
+        uint8_t ibus_ocp_stat : 1;
+        uint8_t vbat_ovp_stat : 1;
+        uint8_t vbus_ovp_stat : 1;
+        uint8_t ibat_reg_stat : 1;
+    } bit;
+} bq25790_fltstat0_reg;
+
 #define BQ24790_REG_FLT_STATUS1 0x21
+
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t reserved : 2;
+        uint8_t tshut_stat : 1;
+        uint8_t reserved2 : 1;
+        uint8_t otg_uvp_stat : 1;
+        uint8_t otg_ovp_stat : 1;
+        uint8_t vsys_ovp_stat : 1;
+        uint8_t vsys_short_stat : 1;
+    } bit;
+} bq25790_fltstat1_reg;
 
 #define BQ24790_REG_CHG_FLAG0 0x22
 
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t vbus_present_flag : 1;
+        uint8_t ac1_present_flag : 1;
+        uint8_t ac2_present_flag : 1;
+        uint8_t pg_flag : 1;
+        uint8_t poorsrc_flag : 1;
+        uint8_t wd_flag : 1;
+        uint8_t vindpm_flag : 1;
+        uint8_t iindpm_flag : 1;
+    } bit;
+} bq25790_chgflag0_reg;
+
 #define BQ24790_REG_CHG_FLAG1 0x23
+
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t bc12_done_flag : 1;
+        uint8_t vbat_present_flag : 1;
+        uint8_t treg_flag : 1;
+        uint8_t reserved : 1;
+        uint8_t vbus_flag : 1;
+        uint8_t reserved2 : 1;
+        uint8_t ico_flag : 1;
+        uint8_t chg_flag : 1;
+    } bit;
+} bq25790_chgflag1_reg;
 
 #define BQ24790_REG_CHG_FLAG2 0x24
 
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t topoff_tmr_flag : 1;
+        uint8_t prechg_tmr_flag : 1;
+        uint8_t trichg_tmr_flag : 1;
+        uint8_t chg_tmr_flag : 1;
+        uint8_t vsys_flag : 1;
+        uint8_t adc_done_flag : 1;
+        uint8_t dpdm_done_flag : 1;
+        uint8_t reserved : 1;
+    } bit;
+} bq25790_chgflag2_reg;
+
 #define BQ24790_REG_CHG_FLAG3 0x25
+
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t ts_hot_flag : 1;
+        uint8_t ts_warm_flag : 1;
+        uint8_t ts_cool_flag : 1;
+        uint8_t ts_cold_flag : 1;
+        uint8_t vbatotg_low_flag : 1;
+        uint8_t reserved : 3;
+    } bit;
+} bq25790_chgflag3_reg;
 
 #define BQ24790_REG_FLT_FLAG0 0x26
 
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t vac1_ovp_flag : 1;
+        uint8_t vac2_ovp_flag : 1;
+        uint8_t conv_ocp_flag : 1;
+        uint8_t ibat_ocp_flag : 1;
+        uint8_t ibus_ocp_flag : 1;
+        uint8_t vbat_ovp_flag : 1;
+        uint8_t vbus_ovp_flag : 1;
+        uint8_t ibat_reg_flag : 1;
+    } bit;
+} bq25790_fltflag0_reg;
+
 #define BQ24790_REG_FLT_FLAG1 0x27
+
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t reserved            : 2;
+        uint8_t tshut_flag          : 1;
+        uint8_t reserved2           : 1;
+        uint8_t otg_uvp_flag        : 1;
+        uint8_t otg_ovp_flag        : 1;
+        uint8_t vsys_ovp_flag       : 1;
+        uint8_t vsys_short_flag     : 1;
+    } bit;
+} bq25790_fltflag1_reg;
 
 #define BQ25790_REG_CHG_INT_MASK0 0x28
 
 typedef union {
     uint8_t val;
     struct {
-        uint8_t vbus_present_mask   : 1;
-        uint8_t ac1_present_mask    : 1;
-        uint8_t ac2_present_mask    : 1;
-        uint8_t pg_mask             : 1;
-        uint8_t poorsrc_mask        : 1;
-        uint8_t wd_mask             : 1;
-        uint8_t vindpm_mask         : 1;
-        uint8_t iindpm_mask         : 1;
+        uint8_t vbus_present_mask : 1;
+        uint8_t ac1_present_mask : 1;
+        uint8_t ac2_present_mask : 1;
+        uint8_t pg_mask : 1;
+        uint8_t poorsrc_mask : 1;
+        uint8_t wd_mask : 1;
+        uint8_t vindpm_mask : 1;
+        uint8_t iindpm_mask : 1;
     } bit;
 } bq25790_intmask0_reg;
 
@@ -267,14 +402,14 @@ typedef union {
 typedef union {
     uint8_t val;
     struct {
-        uint8_t  bc12_done_mask    : 1;
-        uint8_t  vbat_present_mask  : 1;
-        uint8_t  treg_mask  : 1;
-        uint8_t  reserved   : 1;
-        uint8_t  vbus_mask  : 1;
-        uint8_t  reserved2   : 1;
-        uint8_t  ico_mask   : 1;
-        uint8_t  chg_mask   : 1;
+        uint8_t bc12_done_mask : 1;
+        uint8_t vbat_present_mask : 1;
+        uint8_t treg_mask : 1;
+        uint8_t reserved : 1;
+        uint8_t vbus_mask : 1;
+        uint8_t reserved2 : 1;
+        uint8_t ico_mask : 1;
+        uint8_t chg_mask : 1;
     } bit;
 } bq25790_intmask1_reg;
 
@@ -316,14 +451,14 @@ typedef union {
 
 #define BQ25790_REG_TDIE_ADC_0 0x42
 
-#define BQ25790_REG_PART_NUM    0x48
+#define BQ25790_REG_PART_NUM 0x48
 
 typedef union {
     uint8_t val;
     struct {
-        uint8_t  devrev : 3;
-        uint8_t  partnum: 3;
-        uint8_t  reserved : 2;
+        uint8_t devrev : 3;
+        uint8_t partnum : 3;
+        uint8_t reserved : 2;
     } bit;
 } bq25790_partnum_reg;
 
