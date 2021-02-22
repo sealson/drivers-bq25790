@@ -124,7 +124,7 @@ typedef enum {
     CELLX_2S,
     CELLX_3S,
     CELLX_4S
-} bq24790_cellx_t;
+} bq25790_cellx_t;
 
 /*
  * Battery recharge deglich time
@@ -544,7 +544,7 @@ typedef union {
     } bit;
 } bq25790_chgstat4_reg;
 
-#define BQ24790_REG_FLT_STATUS0 0x20
+#define BQ25790_REG_FLT_STATUS0 0x20
 
 typedef union {
     uint8_t val;
@@ -560,7 +560,7 @@ typedef union {
     } bit;
 } bq25790_fltstat0_reg;
 
-#define BQ24790_REG_FLT_STATUS1 0x21
+#define BQ25790_REG_FLT_STATUS1 0x21
 
 typedef union {
     uint8_t val;
@@ -575,7 +575,7 @@ typedef union {
     } bit;
 } bq25790_fltstat1_reg;
 
-#define BQ24790_REG_CHG_FLAG0 0x22
+#define BQ25790_REG_CHG_FLAG0 0x22
 
 typedef union {
     uint8_t val;
@@ -591,7 +591,7 @@ typedef union {
     } bit;
 } bq25790_chgflag0_reg;
 
-#define BQ24790_REG_CHG_FLAG1 0x23
+#define BQ25790_REG_CHG_FLAG1 0x23
 
 typedef union {
     uint8_t val;
@@ -607,7 +607,7 @@ typedef union {
     } bit;
 } bq25790_chgflag1_reg;
 
-#define BQ24790_REG_CHG_FLAG2 0x24
+#define BQ25790_REG_CHG_FLAG2 0x24
 
 typedef union {
     uint8_t val;
@@ -623,7 +623,7 @@ typedef union {
     } bit;
 } bq25790_chgflag2_reg;
 
-#define BQ24790_REG_CHG_FLAG3 0x25
+#define BQ25790_REG_CHG_FLAG3 0x25
 
 typedef union {
     uint8_t val;
@@ -637,7 +637,7 @@ typedef union {
     } bit;
 } bq25790_chgflag3_reg;
 
-#define BQ24790_REG_FLT_FLAG0 0x26
+#define BQ25790_REG_FLT_FLAG0 0x26
 
 typedef union {
     uint8_t val;
@@ -653,7 +653,7 @@ typedef union {
     } bit;
 } bq25790_fltflag0_reg;
 
-#define BQ24790_REG_FLT_FLAG1 0x27
+#define BQ25790_REG_FLT_FLAG1 0x27
 
 typedef union {
     uint8_t val;
