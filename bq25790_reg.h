@@ -1,7 +1,6 @@
 #ifndef __BQ25790_REG_H
 #define __BQ25790_REG_H
 
-#include <bits/stdint-uintn.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -87,7 +86,15 @@ typedef union {
     } bit;
 } bq25790_rechg_reg;
 
-// TODO Reg 0B
+#define BQ25790_REG_VOTG_REGULATION 0x0B
+
+typedef union {
+    uint16_t val;
+    struct {
+        uint16_t votg : 11;
+        uint16_t reserved : 5;
+    } bit;
+} bq25790_votg_reg;
 
 #define BQ25790_REG_IOTG_REGULATION 0x0D
 
@@ -371,13 +378,13 @@ typedef union {
 typedef union {
     uint8_t val;
     struct {
-        uint8_t reserved            : 2;
-        uint8_t tshut_flag          : 1;
-        uint8_t reserved2           : 1;
-        uint8_t otg_uvp_flag        : 1;
-        uint8_t otg_ovp_flag        : 1;
-        uint8_t vsys_ovp_flag       : 1;
-        uint8_t vsys_short_flag     : 1;
+        uint8_t reserved : 2;
+        uint8_t tshut_flag : 1;
+        uint8_t reserved2 : 1;
+        uint8_t otg_uvp_flag : 1;
+        uint8_t otg_ovp_flag : 1;
+        uint8_t vsys_ovp_flag : 1;
+        uint8_t vsys_short_flag : 1;
     } bit;
 } bq25790_fltflag1_reg;
 
@@ -421,35 +428,125 @@ typedef union {
 
 #define BQ25790_REG_FLT_MASK1 0x2D
 
-#define BQ25790_ADC_CONTROL_REG 0x2E
+#define BQ25790_REG_ADC_CONTROL 0x2E
 
-#define BQ25790_REG_IBUS_ADC_1 0x31
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t reserved : 2;
+        uint8_t adc_avg_init : 1;
+        uint8_t adc_avg : 1;
+        uint8_t adc_sample : 2;
+        uint8_t adc_rate : 1;
+        uint8_t adc_en : 1;
+    } bit;
+} bq25790_adcctrl_reg;
 
-#define BQ25790_REG_IBUS_ADC_0 0x32
+#define BQ25790_REG_FUNC_DIS0 0x2F
 
-#define BQ25790_REG_IBAT_ADC_1 0x33
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t reserved : 1;
+        uint8_t tdie_adc_dis : 1;
+        uint8_t ts_adc_dis : 1;
+        uint8_t vsys_adc_dis : 1;
+        uint8_t vbat_adc_dis : 1;
+        uint8_t vbus_adc_dis : 1;
+        uint8_t ibat_adc_dis : 1;
+        uint8_t ibus_adc_dis : 1;
+    } bit;
+} bq25790_adcfuncdis0_reg;
 
-#define BQ25790_REG_IBAT_ADC_0 0x34
+#define BQ25790_REG_FUNC_DIS1 0x2F
 
-#define BQ25790_REG_VBUS_ADC_1 0x35
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t reserved : 4;
+        uint8_t vac1_adc_dis : 1;
+        uint8_t vac2_adc_dis : 1;
+        uint8_t dm_adc_dis : 1;
+        uint8_t dp_adc_dis : 1;
+    } bit;
+} bq25790_adcfuncdis1_reg;
 
-#define BQ25790_REG_VBUS_ADC_0 0x36
+#define BQ25790_REG_IBUS_ADC 0x31
 
-#define BQ25790_REG_VBAT_ADC_1 0x3B
+typedef union {
+    uint16_t val;
+} bq25790_ibus_adc_reg;
 
-#define BQ25790_REG_VBAT_ADC_0 0x3C
+#define BQ25790_REG_IBAT_ADC 0x33
 
-#define BQ25790_REG_VSYS_ADC_1 0x3D
+typedef union {
+    uint16_t val;
+} bq25790_ibat_adc_reg;
 
-#define BQ25790_REG_VSYS_ADC_0 0x3E
+#define BQ25790_REG_VBUS_ADC 0x35
 
-#define BQ25790_REG_TS_ADC_1 0x3F
+typedef union {
+    uint16_t val;
+} bq25790_vbus_adc_reg;
 
-#define BQ25790_REG_TS_ADC_0 0x40
+#define BQ25790_REG_VAC1_ADC 0x37
 
-#define BQ25790_REG_TDIE_ADC_1 0x41
+typedef union {
+    uint16_t val;
+} bq25790_vac1_adc_reg;
 
-#define BQ25790_REG_TDIE_ADC_0 0x42
+#define BQ25790_REG_VAC2_ADC 0x39
+
+typedef union {
+    uint16_t val;
+} bq25790_vac2_adc_reg;
+
+#define BQ25790_REG_VBAT_ADC 0x3B
+
+typedef union {
+    uint16_t val;
+} bq25790_vbat_adc_reg;
+
+#define BQ25790_REG_VSYS_ADC 0x3D
+
+typedef union {
+    uint16_t val;
+} bq25790_vsys_adc_reg;
+
+#define BQ25790_REG_TS_ADC 0x3F
+
+typedef union {
+    uint16_t val;
+} bq25790_ts_adc_reg;
+
+#define BQ25790_REG_TDIE_ADC 0x41
+
+typedef union {
+    uint16_t val;
+} bq25790_tdie_adc_reg;
+
+#define BQ25790_REG_DP_ADC 0x43
+
+typedef union {
+    uint16_t val;
+} bq25790_dp_adc_reg;
+
+#define BQ25790_REG_DM_ADC 0x45
+
+typedef union {
+    uint16_t val;
+} bq25790_dm_adc_reg;
+
+#define BQ25790_REG_DPDM_DRIVER 0x47
+
+typedef union {
+    uint8_t val;
+    struct {
+        uint8_t reserved : 2;
+        uint8_t dm_dac : 3;
+        uint8_t dp_dac : 3;
+    } bit;
+} bq25790_dpdm_driver_reg;
 
 #define BQ25790_REG_PART_NUM 0x48
 
